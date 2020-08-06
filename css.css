@@ -31,3 +31,13 @@
 .shadow5a:corner-present{
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
+
+/* Remove text decoration on all a elements :: If you want to remove this only on selected anchor elements, then use different selector */
+a{
+    text-decoration: none!important
+}
+
+/* Remove bullets (or any list styles) on lists :: Use with different selector, because you probably don't want to remove them everywhere */
+ul, ol, dl{
+    list-style-type: none!important
+}
