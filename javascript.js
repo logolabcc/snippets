@@ -133,3 +133,28 @@ for (var i = 0; i < usernames.length; i++) {
     usernames[i].addEventListener('focusout', usernamesCheck, false);
 }
 /*** E:  S: Function which checks username pattern (8 to 20 charachters, including numbers. It can't start with the number) ***/
+
+/*** S: Function for getting cookie by name ***/
+function getCookie(cookieName) {
+    // Get the cookie name
+    var name = cookieName + "=";
+    // Decode cookies saved inside browser
+    var decodedCookie = decodeURIComponent(document.cookie);
+    // Split cookies to the array by ;
+    var cookieArray = decodedCookie.split(';');
+    // Find the cookie we are searching for inside the array
+    for(var i = 0; i < cookieArray.length; i++) {
+      var cookie = cookieArray[i];
+      while (cookie.charAt(0) == ' ') {
+        cookie = cookie.substring(1);
+      }
+      // If we find cookie, then return its value
+      if (cookie.indexOf(name) == 0) {
+        return cookie.substring(name.length, cookie.length);
+      }
+    }
+    // If we don't find cookie, then return nothing
+    return "";
+  }
+
+  /*** E: Function for getting cookie by name ***/
