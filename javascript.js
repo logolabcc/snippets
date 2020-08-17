@@ -54,6 +54,8 @@ var element = document.getElementById("element").clientHeight;
 // Get elements height (with border width)
 var element = document.getElementById("element").offsetWidth;
 
+
+
 /*** S: Password Complexity Check (8-20 characters with lowercase letter, uppercase letter, one digit and one special character) ***/
 // Get passwords from input
 var passwords = document.getElementsByClassName("register-password");
@@ -93,6 +95,8 @@ for (var i = 0; i < passwords.length; i++) {
     passwords[i].addEventListener('focusout', passwordsCheck, false);
 }
 /*** E: Password Complexity Check (8-20 characters with lowercase letter, uppercase letter, one digit and one special character) ***/
+
+
 
 /*** S: Function which checks username pattern (8 to 20 charachters, including numbers. It can't start with the number) ***/
 // Get usernames from input
@@ -134,6 +138,8 @@ for (var i = 0; i < usernames.length; i++) {
 }
 /*** E:  S: Function which checks username pattern (8 to 20 charachters, including numbers. It can't start with the number) ***/
 
+
+
 /*** S: Function for getting cookie by name ***/
 function getCookie(cookieName) {
     // Get the cookie name
@@ -158,3 +164,37 @@ function getCookie(cookieName) {
   }
 
   /*** E: Function for getting cookie by name ***/
+
+
+/*** S: Function for creating cross browser XMLHttpRequest ***/
+
+function createAjax() {
+    // The variable that makes Ajax possible!
+    var ajaxRequest; 
+    try {
+      // Opera 8.0+, Firefox, Safari
+      ajaxRequest = new XMLHttpRequest();
+    } catch (e) {
+    
+      // Internet Explorer Browsers
+      try {
+         ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch (e) {
+      
+         try {
+            ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+         } catch (e) {
+      
+            // Something went wrong
+            alert("Your browser broke!");
+            return false;
+         }
+      }
+    }
+// If everything is allright, return ajaxRequest
+return ajaxRequest;
+}
+
+/*** E: Function for creating cross browser XMLHttpRequest ***/
+
+
