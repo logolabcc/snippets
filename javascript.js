@@ -198,3 +198,55 @@ return ajaxRequest;
 /*** E: Function for creating cross browser XMLHttpRequest ***/
 
 
+
+/*** S: Function which checks does username exists inside the database ***/
+// Get username to check
+var usernamesExists = document.getElementsByClassName("register-username");
+// Create function for checking username inside the database
+var usernameExistsCheck = function(){
+    // Get username value
+    var usernameValue = this.value;
+    // Create cross-browser ajax request
+    var xhttp = createAjax();
+    xhttp.onreadystatechange = function() {
+        // If call is successful check backend response
+        if (this.readyState == 4 && this.status == 200) {
+            // If answer is true, than we have a username inside the database, and we are going to show the error
+            if(this.responseText){
+                // Get error field to write in
+                var usernameExistsError = document.getElementsByClassName("username-exists-error-field");
+                // Go through all error fields
+                for(var i = 0; i < usernameExistsError.length; i++){
+                    // Get language cookie, to know what to write
+                    var language = getCookie('lang');
+                    // Display error field
+                    usernameExistsError[i].style.display = "inline-block";
+                    // Write the message
+                    if(language === ''){
+                        usernameExistsError[i].innerHTML = "Username already exists!";
+                    }else if(language === 'english'){
+                        usernameExistsError[i].innerHTML = "Username already exists!";
+                    }
+                }   
+            }else{
+                // If don't have a match in the database, hide the field and remove the text errors (if they are any)
+                var usernameExistsField = document.getElementsByClassName("username-exists-error-field");
+                for (var i = 0; i < usernameExistsField.length; i++) {
+                    usernameExistsField[i].innerHTML = "";
+                    usernameExistsField[i].style.display = "none";
+                }
+            }
+        }
+    };
+    // Open AJAX request, send it and send POST parameters
+    xhttp.open("POST", "dom_php/controller.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("username="+usernameValue+"&function=checkUsernameExists");
+
+};
+// Add this function to every element with the class 'register-username'
+for (var i = 0; i < usernamesExists.length; i++) {
+    usernamesExists[i].addEventListener('focusout', usernameExistsCheck, false);
+}
+    
+/*** E: Function which checks does username exists inside the database ***/
