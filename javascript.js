@@ -259,5 +259,16 @@ document.write(strippedString);
 
 /*** E: Strip HTML Tags ***/
 
-// Create random color in JS
+// Create random color
 var randomColor = Math.floor(Math.random()*16777215).toString(16);
+
+// Select random element from array (named RandomArray)
+var randomArrayElement = RandomArray[Math.floor(Math.random()*RandomArray.length)];
+
+/*** S: Inject new styles ***/
+function injectStyles(rule) {
+    var div = $("<div />", {
+        html: '<style>' + rule + '</style>'
+    }).appendTo("body");    
+}
+/*** E: Inject new styles ***/
