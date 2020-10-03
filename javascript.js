@@ -258,3 +258,6 @@ let strippedString = originalString.replace(/(<([^>]+)>)/gi, "");
 document.write(strippedString);
 
 /*** E: Strip HTML Tags ***/
+
+// Create random color in JS
+var randomColor = Math.floor(Math.random()*16777215).toString(16);
