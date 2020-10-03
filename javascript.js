@@ -250,3 +250,11 @@ for (var i = 0; i < usernamesExists.length; i++) {
 }
     
 /*** E: Function which checks does username exists inside the database ***/
+
+/*** S: Strip HTML Tags ***/
+
+let originalString = "<div><h1>We are naked <strong> now!</strong></h1></div>";
+let strippedString = originalString.replace(/(<([^>]+)>)/gi, "");
+document.write(strippedString);
+
+/*** E: Strip HTML Tags ***/
