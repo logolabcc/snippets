@@ -53,10 +53,10 @@ function checkUsernameExists($data){
 class Connection {
 	private $_connection;
 
-	private $_hostname = "localhost";
-	private $_username = "linked_05122020web1_appuser";
-	private $_password = "Database.05122020.Web.APP.LinkedInk!";
-	private $_database = "linked_05122020web1_appdb";
+	private $_hostname = "";
+	private $_username = "";
+	private $_password = "";
+	private $_database = "";
 
 	private static $_instance; 
 
@@ -110,3 +110,18 @@ function randomColor(){
 }
 
 /*** E: Function:Create random color in PHP ***/
+
+
+// Generate 4 Digit Random Number (for example, for 2FA) 1
+$randomNumber = mt_rand (1000, 9999);
+
+// Generate 5 Digit Random Number (for example, for 2FA) 2
+$randomNumber = mt_rand (10000, 99999);
+
+// Generate X Digit Random Number (for example, for 2FA) 3
+$x = 10;
+$randomNumber = substr(str_shuffle("0123456789"), 0, $x);
+
+// Generate X Random String (for example, for 2FA) 4
+$x = 13;
+$randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ"), 0, $x);
