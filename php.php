@@ -128,7 +128,14 @@ $randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHI
 
 /*** S: Simple XSS Protection - Replace special characters with HTML Entities ***/
 
-var $input = $_POST['input'];
+$input = $_POST['input'];
 $input = htmlspecialchars( $input);
 
 /*** E: Simple XSS Protection ***/
+
+/*** S: Simple SQL Injection Protection - Add slash to special characters */
+
+$input = $_POST['input'];
+$input = mysqli_real_escape_string($connectionToTheDatabase, $input);
+
+/*** E: Simple SQL Injection Protection */
