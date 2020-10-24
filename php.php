@@ -125,3 +125,10 @@ $randomNumber = substr(str_shuffle("0123456789"), 0, $x);
 // Generate X Random String (for example, for 2FA) 4
 $x = 13;
 $randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ"), 0, $x);
+
+/*** S: Simple XSS Protection - Replace special characters with HTML Entities ***/
+
+var $input = $_POST['input'];
+$input = htmlspecialchars( $input);
+
+/*** E: Simple XSS Protection ***/

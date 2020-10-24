@@ -266,9 +266,12 @@ var randomColor = Math.floor(Math.random()*16777215).toString(16);
 var randomArrayElement = RandomArray[Math.floor(Math.random()*RandomArray.length)];
 
 /*** S: Inject new styles ***/
+
 function injectStyles(rule) {
     var div = $("<div />", {
         html: '<style>' + rule + '</style>'
     }).appendTo("body");    
 }
+
 /*** E: Inject new styles ***/
+
